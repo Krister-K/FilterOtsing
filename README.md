@@ -1,5 +1,5 @@
 # FilterOtsing
 
-virtualenv ******
-source ******/bin/activate
-pip install flask blinker
+virtualenv ****** <br>
+source ******/bin/activate <br>
+pip install flask blinker<br>

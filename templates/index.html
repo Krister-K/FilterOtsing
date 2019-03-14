@@ -1,0 +1,23 @@
+<html>
+	<head>
+		<title>Oskari Filmide Tabel, mis on nagemata</title>
+		<meta charset="utf-8">
+
+	</head>
+
+	<body>
+		<table>
+			<tr>
+				<th>Filmi nimi</th>
+				<th>Aasta</th>
+				<th>Oskareid voitnud</th>
+			</tr>
+			
+			{% for row in data %}
+			<tr>
+				<td>{{row[0]}}</td>
+				<td>{{row[1]}}</td>
+				<td>{{row[2]}}</td>
+			</tr>
+			{% endfor %}
+		</table>

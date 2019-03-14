@@ -6,7 +6,14 @@
 	</head>
 
 	<body>
-		<table>
+		<p>Otsing</p>
+		<form action="/search" method="get">
+			<input type="text" name="key">
+			<input type=submit value="Otsi">
+			<p><b>Filtreeri aasta jargi</b></p><input type="radio" name="filter" value="year">
+			<p><b>Filter voitude jargi</b><p><input type="radio" name="filter" value="wins">
+		</form>
+		<table border=2>
 			<tr>
 				<th>Filmi nimi</th>
 				<th>Aasta</th>
@@ -15,9 +22,9 @@
 			
 			{% for row in data %}
 			<tr>
-				<td>{{row[0]}}</td>
-				<td>{{row[1]}}</td>
-				<td>{{row[2]}}</td>
+				<td style="text-align: center;">{{row[0]}}</td>
+				<td style="text-align: center;">{{row[1]}}</td>
+				<td style="text-align:center;">{{row[2]}}</td>
 			</tr>
 			{% endfor %}
 		</table>

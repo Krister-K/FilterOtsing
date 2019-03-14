@@ -1,0 +1,51 @@
+<html>
+	<head>
+		<title>Oskari Filmide Tabel, mis on nagemata</title>
+		<meta charset="utf-8">
+
+	</head>
+
+	<body>
+		<p>Otsing</p>
+		<form action="/search" method="get">
+			<input type="text" name="key">
+			<input type=submit value="Otsi">
+			<p><b>Filtreeri aasta jargi</b></p><input type="radio" name="filter" value="year">
+			<p><b>Filtreeri voitude jargi</b></p><input type="radio" name="filter" value="wins">
+		</form>
+		<table border=2>
+			<tr>
+				<th>Filmi nimi</th>
+				<th>Aasta</th>
+				<th>Oskareid voitnud</th>
+			</tr>
+			
+			{% for row in data %}
+				{% if sieve == "year" %}
+					
+					{% if key in row[1] %}
+						<tr>
+							<td style="text-align: center;">{{row[0]}}</td>
+							<td style="text-align: center;">{{row[1]}}</td>
+							<td style="text-align: center;">{{row[2]}}</td>
+						</tr>
+					{% endif %}
+				{% elif sieve == "wins" %}
+					{% if key in row[2] %}
+						<tr>
+							<td style="text-align: center;">{{row[0]}}</td>
+							<td style="text-align: center;">{{row[1]}}</td>
+							<td style="text-align: center;">{{row[2]}}</td>
+						</tr>
+					{% endif %}
+				{% else %}
+					{% if key.lower() in row[0].lower() %}
+						<tr>
+							<td style="text-align: center;">{{row[0]}}</td>
+							<td style="text-align: center;">{{row[1]}}</td>
+							<td style="text-align: center;">{{row[2]}}</td>
+						</tr>
+					{% endif %}
+				{% endif %}
+			{% endfor %}
+		</table>
